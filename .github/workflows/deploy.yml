@@ -42,4 +42,4 @@ jobs:
           --resource-group ${{ env.RESOURCE_GROUP }} \
           --image ${{ env.ACR_NAME }}.azurecr.io/fastapi-app:v1-${{ github.event.inputs.color }} \
           --set-env-vars APP_VERSION="v1-${{ github.event.inputs.color }}" \
-          --revision-suffix ${{ github.event.inputs.color }}
+          --revision-suffix ${{ github.event.inputs.color }}-${{ github.run_number }}
