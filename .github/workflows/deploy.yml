@@ -1,0 +1,44 @@
+name: Deploy to Azure
+
+on:
+  workflow_dispatch:
+    inputs:
+      color:
+        description: 'Deployment color'
+        required: true
+        default: 'blue'
+        type: choice
+        options:
+        - blue
+        - green
+
+env:
+  ACR_NAME: ghaithacr2026
+  APP_NAME: ghaith-fastapi-app
+  RESOURCE_GROUP: ghaith-azure-project-rg
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Azure Login (Check logs for code)
+      run: az login --use-device-code
+
+    - name: Login to ACR
+      run: az acr login --name ${{ env.ACR_NAME }}
+
+    - name: Build and Push
+      run: |
+        docker build -t ${{ env.ACR_NAME }}.azurecr.io/fastapi-app:v1-${{ github.event.inputs.color }} .
+        docker push ${{ env.ACR_NAME }}.azurecr.io/fastapi-app:v1-${{ github.event.inputs.color }}
+
+    - name: Deploy
+      run: |
+        az containerapp update \
+          --name ${{ env.APP_NAME }} \
+          --resource-group ${{ env.RESOURCE_GROUP }} \
+          --image ${{ env.ACR_NAME }}.azurecr.io/fastapi-app:v1-${{ github.event.inputs.color }} \
+          --set-env-vars APP_VERSION="v1-${{ github.event.inputs.color }}" \
+          --revision-suffix ${{ github.event.inputs.color }}
