@@ -27,7 +27,8 @@ jobs:
       run: az login --use-device-code
 
     - name: Login to ACR
-      run: az acr login --name ${{ env.ACR_NAME }}
+      run: |
+    az acr login --name ${{ env.ACR_NAME }} --username ${{ env.ACR_NAME }} --password ${{ secrets.ACR_PASSWORD }}
 
     - name: Build and Push
       run: |
