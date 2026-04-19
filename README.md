@@ -76,9 +76,7 @@ This constraint demonstrates practical experience working within organizational 
 - YAML pipeline configuration
 - Cloud resource troubleshooting and debugging
 
-## Author
-**Ghaith Dhaouadi** - Cloud DevOps Engineer
-
+## Screenshots
 <img width="1867" height="975" alt="Live App - BLUE Version" src="https://github.com/user-attachments/assets/e54907e6-3e0c-4457-b8d5-6741bfbd2d28" />
 <img width="1865" height="974" alt="Live App - GREEN Version" src="https://github.com/user-attachments/assets/890e589d-e247-4269-8b80-3cf5bc29ddc2" />
 <img width="1868" height="935" alt="Application Insights Dashboard" src="https://github.com/user-attachments/assets/72a86020-617d-4807-8f93-6538ae21be17" />
@@ -86,4 +84,5 @@ This constraint demonstrates practical experience working within organizational 
 <img width="1869" height="931" alt="Azure Portal - Container App Overview" src="https://github.com/user-attachments/assets/7370a0eb-ee96-49d3-8a27-1739a7ded9dc" />
 <img width="894" height="278" alt="Terminal - Bicep Output" src="https://github.com/user-attachments/assets/ba3c95ef-dba0-4bc4-8e1f-ac318c731f4f" />
 
-
+## Author
+**Ghaith Dhaouadi** - Cloud DevOps Engineer
